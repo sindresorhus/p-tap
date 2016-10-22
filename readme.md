@@ -69,6 +69,7 @@ If `input` returns a `Promise`, it will be awaited before passing through the or
 
 - [p-log](https://github.com/sindresorhus/p-log) - Log the value/error of a promise
 - [p-if](https://github.com/sindresorhus/p-if) - Conditional promise chains
+- [p-catch-if](https://github.com/sindresorhus/p-catch-if) - Conditional promise catch handler
 - [More…](https://github.com/sindresorhus/promise-fun)
 
 
