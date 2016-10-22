@@ -26,7 +26,7 @@ Promise.resolve('unicorn')
 const pTap = require('p-tap');
 
 getUser()
-	.then(tap(user => saveUser(user))) // `user` is saved async before the chain continues
+	.then(pTap(user => saveUser(user))) // `user` is saved async before the chain continues
 	.then(user => {
 		// `user` is the user from getUser(), not recordStatsAsync()
 	});
