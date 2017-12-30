@@ -2,7 +2,7 @@
 
 module.exports = fn => val => {
 	const ret = () => val;
-	return Promise.resolve(val).then(fn).then(ret, ret);
+	return Promise.resolve(val).then(fn).then(ret);
 };
 
 module.exports.catch = fn => err => {
