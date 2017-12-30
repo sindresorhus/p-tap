@@ -48,15 +48,15 @@ test('catch - ignores tap value', async t => {
 		});
 });
 
-test('catch - ignores tap error', async t => {
+test('catch - does not ignore tap error', async t => {
 	t.plan(1);
 
 	await Promise.reject(fixtureErr)
 		.catch(m.catch(() => {
-			throw new Error('ignored-err');
+			throw tapErr;
 		}))
 		.catch(err => {
-			t.is(err, fixtureErr);
+			t.is(err, tapErr);
 		});
 });
 
