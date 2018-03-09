@@ -60,9 +60,7 @@ Returns a [thunk](https://en.m.wikipedia.org/wiki/Thunk) that returns a `Promise
 
 Type: `Function`
 
-Any return value is ignored.
-
-However, The exceptions thrown (if any) in `input` are relayed back to the original promise chain.
+Any return value is ignored. Exceptions thrown in `input` are relayed back to the original promise chain.
 
 If `input` returns a `Promise`, it will be awaited before passing through the original value.
 
