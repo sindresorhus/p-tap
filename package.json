@@ -1,6 +1,6 @@
 {
 	"name": "p-tap",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "Tap into a promise chain without affecting its value or state",
 	"license": "MIT",
 	"repository": "sindresorhus/p-tap",
