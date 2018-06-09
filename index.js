@@ -1,11 +1,11 @@
 'use strict';
 
-module.exports = fn => val => {
-	const ret = () => val;
-	return Promise.resolve(val).then(fn).then(ret);
+module.exports = fn => value => {
+	const ret = () => value;
+	return Promise.resolve(value).then(fn).then(ret);
 };
 
-module.exports.catch = fn => err => {
-	const ret = () => Promise.reject(err);
-	return Promise.resolve(err).then(fn).then(ret);
+module.exports.catch = fn => error => {
+	const ret = () => Promise.reject(error);
+	return Promise.resolve(error).then(fn).then(ret);
 };

@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --save p-tap
+$ npm install p-tap
 ```
 
 
@@ -16,7 +16,7 @@ $ npm install --save p-tap
 const pTap = require('p-tap');
 
 Promise.resolve('unicorn')
-	.then(pTap(console.log)) // logs `unicorn`
+	.then(pTap(console.log)) // Logs `unicorn`
 	.then(value => {
 		// `value` is still `unicorn`
 	});
@@ -26,7 +26,7 @@ Promise.resolve('unicorn')
 const pTap = require('p-tap');
 
 getUser()
-	.then(pTap(user => recordStatsAsync(user))) // stats are saved about `user` async before the chain continues
+	.then(pTap(user => recordStatsAsync(user))) // Stats are saved about `user` async before the chain continues
 	.then(user => {
 		// `user` is the user from getUser(), not recordStatsAsync()
 	});
