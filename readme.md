@@ -44,25 +44,25 @@ Promise.resolve(() => doSomething())
 
 ## API
 
-### pTap(input)
+### pTap(tapHandler)
 
 Use this in a `.then()` method.
 
 Returns a [thunk](https://en.m.wikipedia.org/wiki/Thunk) that returns a `Promise`.
 
-### pTap.catch(input)
+### pTap.catch(tapHandler)
 
 Use this in a `.catch()` method.
 
 Returns a [thunk](https://en.m.wikipedia.org/wiki/Thunk) that returns a `Promise`.
 
-#### input
+#### tapHandler
 
 Type: `Function`
 
-Any return value is ignored. Exceptions thrown in `input` are relayed back to the original promise chain.
+Any return value is ignored. Exceptions thrown in `tapHandler` are relayed back to the original promise chain.
 
-If `input` returns a `Promise`, it will be awaited before passing through the original value.
+If `tapHandler` returns a `Promise`, it will be awaited before passing through the original value.
 
 
 ## Related
