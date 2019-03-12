@@ -1,72 +1,72 @@
 import test from 'ava';
 import delay from 'delay';
 import timeSpan from 'time-span';
-import m from '.';
+import pTap from '.';
 
 const fixture = Symbol('unicorn');
-const fixtureErr = new Error('unicorn');
-const tapErr = new Error('tap error!');
+const fixtureError = new Error('unicorn');
+const tapError = new Error('tap error!');
 
 test('ignores tap value', async t => {
-	const val = await Promise.resolve(fixture)
-		.then(m(tapVal => {
-			t.is(tapVal, fixture);
+	const value = await Promise.resolve(fixture)
+		.then(pTap(tapValue => {
+			t.is(tapValue, fixture);
 			return 'ignored-val';
 		}));
 
-	t.is(val, fixture);
+	t.is(value, fixture);
 });
 
 test('does not ignore tap error', async t => {
 	await Promise.resolve(fixture)
-		.then(m(() => {
-			throw tapErr;
+		.then(pTap(() => {
+			throw tapError;
 		}))
-		.catch(err => {
-			t.is(err, tapErr);
+		.catch(error => {
+			t.is(error, tapError);
 		});
 });
 
 test('waits for tap promise to resolve', async t => {
 	const end = timeSpan();
-	const val = await Promise.resolve(fixture).then(m(() => delay(200)));
+	const value = await Promise.resolve(fixture).then(pTap(() => delay(200)));
 
-	t.is(val, fixture);
+	t.is(value, fixture);
 	t.true(end() > 180);
 });
 
 test('catch - ignores tap value', async t => {
 	t.plan(2);
 
-	await Promise.reject(fixtureErr)
-		.catch(m.catch(err => {
-			t.is(err, fixtureErr);
+	await Promise.reject(fixtureError)
+		.catch(pTap.catch(error => {
+			t.is(error, fixtureError);
 			return 'ignored-val';
 		}))
-		.catch(err => {
-			t.is(err, fixtureErr);
+		.catch(error => {
+			t.is(error, fixtureError);
 		});
 });
 
 test('catch - does not ignore tap error', async t => {
 	t.plan(1);
 
-	await Promise.reject(fixtureErr)
-		.catch(m.catch(() => {
-			throw tapErr;
+	await Promise.reject(fixtureError)
+		.catch(pTap.catch(() => {
+			throw tapError;
 		}))
-		.catch(err => {
-			t.is(err, tapErr);
+		.catch(error => {
+			t.is(error, tapError);
 		});
 });
 
 test('catch - waits for tap promise to resolve', async t => {
 	const end = timeSpan();
 
-	await Promise.reject(fixtureErr)
-		.catch(m.catch(() => delay(200)))
-		.catch(err => {
-			t.is(err, fixtureErr);
+	await Promise.reject(fixtureError)
+		.catch(pTap.catch(() => delay(200)))
+		.catch(error => {
+			t.is(error, fixtureError);
 			t.true(end() > 180);
 		});
 });
