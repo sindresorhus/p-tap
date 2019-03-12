@@ -48,13 +48,13 @@ Promise.resolve(() => doSomething())
 
 Use this in a `.then()` method.
 
-Returns a [thunk](https://en.m.wikipedia.org/wiki/Thunk) that returns a `Promise`.
+Returns a [thunk](https://en.wikipedia.org/wiki/Thunk) that returns a `Promise`.
 
 ### pTap.catch(tapHandler)
 
 Use this in a `.catch()` method.
 
-Returns a [thunk](https://en.m.wikipedia.org/wiki/Thunk) that returns a `Promise`.
+Returns a [thunk](https://en.wikipedia.org/wiki/Thunk) that returns a `Promise`.
 
 #### tapHandler
 
