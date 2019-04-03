@@ -1,5 +1,5 @@
-import {expectType} from 'tsd-check';
-import pTap from '.';
+import {expectType} from 'tsd';
+import pTap = require('.');
 
 Promise.resolve('unicorn')
 	.then(
