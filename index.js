@@ -6,6 +6,7 @@ const pTap = tapHandler => async value => {
 };
 
 module.exports = pTap;
+// TODO: Remove this for the next major release
 module.exports.default = pTap;
 
 module.exports.catch = tapHandler => async error => {
