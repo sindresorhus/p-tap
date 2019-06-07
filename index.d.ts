@@ -22,7 +22,7 @@ declare const pTap: {
 		});
 	```
 	*/
-	<ValueType = unknown>(tapHandler: (value: ValueType) => unknown): (
+	<ValueType>(tapHandler: (value: ValueType) => unknown): (
 		value: ValueType
 	) => Promise<ValueType>;
 
@@ -42,7 +42,7 @@ declare const pTap: {
 		.catch(handleError);
 	```
 	*/
-	catch<ErrorType = unknown>(
+	catch<ErrorType>(
 		tapHandler: (error: ErrorType) => unknown
 	): (error: ErrorType) => Promise<never>;
 

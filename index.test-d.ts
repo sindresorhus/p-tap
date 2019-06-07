@@ -17,3 +17,11 @@ Promise.reject(new Error()).catch(
 		expectType<Error>(error);
 	})
 );
+
+Promise.resolve('unicorn')
+	.then(
+		pTap(value => {
+			expectType<unknown>(value);
+			return 1;
+		})
+	)
