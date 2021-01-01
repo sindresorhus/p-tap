@@ -1,4 +1,4 @@
-# p-tap [![Build Status](https://travis-ci.org/sindresorhus/p-tap.svg?branch=master)](https://travis-ci.org/sindresorhus/p-tap)
+# p-tap
 
 > Tap into a promise chain without affecting its value or state
 
