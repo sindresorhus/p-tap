@@ -7,7 +7,7 @@ declare const pTap: {
 
 	@example
 	```
-	import pTap = require('p-tap');
+	import pTap from 'p-tap';
 
 	Promise.resolve('unicorn')
 		.then(pTap(console.log)) // Logs `unicorn`
@@ -34,10 +34,10 @@ declare const pTap: {
 
 	@example
 	```
-	import pTap = require('p-tap');
+	import pTap from 'p-tap';
 
 	Promise.resolve(() => doSomething())
-		.catch(pTap.catch(console.error)) // prints any errors
+		.catch(pTap.catch(console.error)) // Prints any errors
 		.then(handleSuccess)
 		.catch(handleError);
 	```
@@ -45,9 +45,6 @@ declare const pTap: {
 	catch<ErrorType>(
 		tapHandler: (error: ErrorType) => unknown
 	): (error: ErrorType) => Promise<never>;
-
-	// TODO: Remove this for the next major release
-	default: typeof pTap;
 };
 
-export = pTap;
+export default pTap;

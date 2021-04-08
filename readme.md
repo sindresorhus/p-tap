@@ -2,18 +2,16 @@
 
 > Tap into a promise chain without affecting its value or state
 
-
 ## Install
 
 ```
 $ npm install p-tap
 ```
 
-
 ## Usage
 
 ```js
-const pTap = require('p-tap');
+import pTap from 'p-tap';
 
 Promise.resolve('unicorn')
 	.then(pTap(console.log)) // Logs `unicorn`
@@ -23,7 +21,7 @@ Promise.resolve('unicorn')
 ```
 
 ```js
-const pTap = require('p-tap');
+import pTap from 'p-tap';
 
 getUser()
 	.then(pTap(user => recordStatsAsync(user))) // Stats are saved about `user` async before the chain continues
@@ -33,14 +31,13 @@ getUser()
 ```
 
 ```js
-const pTap = require('p-tap');
+import pTap from 'p-tap';
 
 Promise.resolve(() => doSomething())
-	.catch(pTap.catch(console.error)) // prints any errors
+	.catch(pTap.catch(console.error)) // Prints any errors
 	.then(handleSuccess)
 	.catch(handleError);
 ```
-
 
 ## API
 
@@ -64,15 +61,9 @@ Any return value is ignored. Exceptions thrown in `tapHandler` are relayed back 
 
 If `tapHandler` returns a `Promise`, it will be awaited before passing through the original value.
 
-
 ## Related
 
 - [p-log](https://github.com/sindresorhus/p-log) - Log the value/error of a promise
 - [p-if](https://github.com/sindresorhus/p-if) - Conditional promise chains
 - [p-catch-if](https://github.com/sindresorhus/p-catch-if) - Conditional promise catch handler
 - [More…](https://github.com/sindresorhus/promise-fun)
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)

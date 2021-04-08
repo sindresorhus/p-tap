@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import {expectType} from 'tsd';
-import pTap = require('.');
+import pTap from './index.js';
 
 Promise.resolve('unicorn')
 	.then(
@@ -12,7 +13,7 @@ Promise.resolve('unicorn')
 		expectType<string>(value);
 	});
 
-Promise.reject(new Error()).catch(
+Promise.reject(new Error('fixture')).catch(
 	pTap.catch<Error>(error => {
 		expectType<Error>(error);
 	})
@@ -21,7 +22,7 @@ Promise.reject(new Error()).catch(
 Promise.resolve('unicorn')
 	.then(
 		pTap(value => {
-			expectType<unknown>(value);
+			expectType<string>(value);
 			return 1;
 		})
-	)
+	);

@@ -1,7 +1,7 @@
 import test from 'ava';
 import delay from 'delay';
 import timeSpan from 'time-span';
-import pTap from '.';
+import pTap from './index.js';
 
 const fixture = Symbol('unicorn');
 const fixtureError = new Error('unicorn');
